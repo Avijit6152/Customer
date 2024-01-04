@@ -1,0 +1,31 @@
+package com.crm;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+
+@Configuration
+@ComponentScan
+
+@SpringBootApplication
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
+//@EntityScan("com.crm.entity")
+public class CrmApplication {
+
+	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
+		SpringApplication.run(CrmApplication.class, args);
+		long endTime = System.currentTimeMillis();
+		
+		long executionTime = endTime - startTime;
+		System.out.println("Execution time: " + executionTime + " milliseconds");
+	}
+
+}
+
+
+
+

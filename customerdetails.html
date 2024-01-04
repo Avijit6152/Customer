@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #004080;
+            background-color: #e6f2ff;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .customer-details {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Add more styles as needed */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Details</h1>
+    
+    <div class="customer-details">
+        <p>ID: <span th:text="${customer.id}"></span></p>
+        <p>First Name: <span th:text="${customer.firstName}"></span></p>
+        <p>Last Name: <span th:text="${customer.lastName}"></span></p>
+        <p>Email: <span th:text="${customer.email}"></span></p>
+        <p>Date of Birth: <span th:text="${customer.dob}"></span></p>
+        <p>Phone: <span th:text="${customer.phone}"></span></p>
+        <p>Aadhar Number: <span th:text="${customer.aadhar}"></span></p>
+        <p>Gender: <span th:text="${customer.gender}"></span></p>
+        <p>Blood Group: <span th:text="${customer.bloodGroup}"></span></p>
+        <p>Address: <span th:text="${customer.address}"></span></p>
+        <p>Pin Code: <span th:text="${customer.pincode}"></span></p>
+    </div>
+
+    <a th:href="@{/customers}">Back to Customer List</a>
+</body>
+</html>

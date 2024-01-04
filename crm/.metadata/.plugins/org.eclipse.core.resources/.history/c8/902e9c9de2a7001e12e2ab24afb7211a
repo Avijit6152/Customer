@@ -1,0 +1,25 @@
+package com.crm.entity;
+
+import java.util.Date;
+
+@Entity
+public class Customer {
+
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
+	 private String firstName;
+	 private String lastName;
+	 private String email;
+	 private Date   dob ;
+	 private String phone;
+	 private String aadhar;
+	 private String gender;
+	 private String address;
+	 private String pincode;
+	 
+	}
+	
+
+

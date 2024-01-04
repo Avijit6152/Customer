@@ -1,0 +1,55 @@
+package com.crm.controller;
+
+//CustomerController.java
+@Controller
+@RequestMapping("/customers")
+public class CustomerController {
+
+ @Autowired
+ private CustomerService customerService;
+
+ @GetMapping
+ public String getAllCustomers(Model model) {
+     List<Customer> customers = customerService.getAllCustomers();
+     model.addAttribute("customers", customers);
+     return "customer/list";
+ }
+
+ @GetMapping("/{id}")
+ public String getCustomerById(@PathVariable Long id, Model model) {
+     Customer customer = customerService.getCustomerById(id);
+     model.addAttribute("customer", customer);
+     return "customer/details";
+ }
+
+ @GetMapping("/new")
+ public String showCustomerForm(Model model) {
+     model.addAttribute("customer", new Customer());
+     return "customer/form";
+ }
+
+ @PostMapping("/new")
+ public String createCustomer(@ModelAttribute Customer customer) {
+     customerService.createCustomer(customer);
+     return "redirect:/customers";
+ }
+
+ @GetMapping("/{id}/edit")
+ public String showEditForm(@PathVariable Long id, Model model) {
+     Customer customer = customerService.getCustomerById(id);
+     model.addAttribute("customer", customer);
+     return "customer/form";
+ }
+
+ @PostMapping("/{id}/edit")
+ public String updateCustomer(@PathVariable Long id, @ModelAttribute Customer updatedCustomer) {
+     customerService.updateCustomer(id, updatedCustomer);
+     return "redirect:/customers";
+ }
+
+ @GetMapping("/{id}/delete")
+ public String deleteCustomer(@PathVariable Long id) {
+     customerService.deleteCustomer(id);
+     return "redirect:/customers";
+ }
+}
